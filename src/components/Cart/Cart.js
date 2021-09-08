@@ -13,9 +13,13 @@ const Cart = props => {
     //  This is a way of assigning a boolean to t/f without an if-statement!
     const hasItems = cartCtx.items.length > 0;
 
-    const cartItemRemoveHandler = id => {};
+    const cartItemRemoveHandler = id => {
+        cartCtx.removeItem(id);
+    };
 
-    const cartItemAddHandler = item => {};
+    const cartItemAddHandler = item => {
+        cartCtx.addItem({...item, amount: 1});
+    };
 
     //  bind does something with pre-configuring what gets passed to it.
     const cartItems = <ul className={classes['cart-items']}>
